@@ -4,8 +4,14 @@ get '/' do
     "Hello World"
   end
 
-get '/cat' do
-    @random_names = ["Cat", "HyperCat", "Melted Cat"].sample
+get '/random_cat' do
+    @name = ["Cat", "HyperCat", "Melted Cat"].sample
+    erb(:index)
+  end
+
+  get '/named_cat' do
+    p params
+    @name = params[:name]
     erb(:index)
   end
   
